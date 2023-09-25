@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"blog.52czy.net","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="最新更新日志，描述了超自由社交平台的更新情况。">
+  <meta name="description" content="另外一种全局的服务游戏模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开发更新日志">
-<meta property="og:url" content="https://blog.52czy.net/2023/05/01/sf/update-log/index.html">
+<meta property="og:title" content="全局类服务模块:ServerMain.lua">
+<meta property="og:url" content="https://blog.52czy.net/2023/09/24/sf/sf-game-server/index.html">
 <meta property="og:site_name" content="万键硅芯">
-<meta property="og:description" content="最新更新日志，描述了超自由社交平台的更新情况。">
+<meta property="og:description" content="另外一种全局的服务游戏模式">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-05-01T08:53:14.000Z">
-<meta property="article:modified_time" content="2023-07-26T02:59:12.032Z">
+<meta property="article:published_time" content="2023-09-24T14:10:08.000Z">
+<meta property="article:modified_time" content="2023-09-25T07:53:49.046Z">
 <meta property="article:author" content="李逍遥">
 <meta property="article:tag" content="无障碍">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blog.52czy.net/2023/05/01/sf/update-log/">
+<link rel="canonical" href="https://blog.52czy.net/2023/09/24/sf/sf-game-server/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>开发更新日志 | 万键硅芯</title>
+  <title>全局类服务模块:ServerMain.lua | 万键硅芯</title>
   
 
 
@@ -167,7 +167,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.52czy.net/2023/05/01/sf/update-log/">
+    <link itemprop="mainEntityOfPage" href="https://blog.52czy.net/2023/09/24/sf/sf-game-server/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -180,7 +180,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          开发更新日志
+          全局类服务模块:ServerMain.lua
         </h1>
 
         <div class="post-meta">
@@ -190,14 +190,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-05-01 16:53:14" itemprop="dateCreated datePublished" datetime="2023-05-01T16:53:14+08:00">2023-05-01</time>
+              <time title="创建时间：2023-09-24 22:10:08" itemprop="dateCreated datePublished" datetime="2023-09-24T22:10:08+08:00">2023-09-24</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-26 10:59:12" itemprop="dateModified" datetime="2023-07-26T10:59:12+08:00">2023-07-26</time>
+                <time title="修改时间：2023-09-25 15:53:49" itemprop="dateModified" datetime="2023-09-25T15:53:49+08:00">2023-09-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -210,7 +210,7 @@
             </span>
 
           
-            <div class="post-description">最新更新日志，描述了超自由社交平台的更新情况。</div>
+            <div class="post-description">另外一种全局的服务游戏模式</div>
 
         </div>
       </header>
@@ -221,49 +221,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><h3 id="v0-0-7"><a href="#v0-0-7" class="headerlink" title="v0.0.7"></a>v0.0.7</h3><ol>
-<li>新增爆破总动员，详细内容升级信息请参考总动员日志</li>
-<li>新增房间内弱无在线用户，则30秒后房间自动解散。</li>
-<li>弱房主在点击开始游戏的时候，座位上有离线用户则无法开始。此时可以有房主将离线用户请离座位后，继续开始。</li>
-<li>新增个性化开关设置，做下、站起，朗读用户昵称提示。</li>
-<li>现在关麦后，释放麦克风占用。</li>
-</ol>
-<h3 id="v0-0-6"><a href="#v0-0-6" class="headerlink" title="v0.0.6"></a>v0.0.6</h3><ol>
-<li>新增电脑和手机拷贝和追加功能，详情参看热键说明。</li>
-<li>房间内新增个人资产和系统商店，，方便不出房间进行查询和操作。</li>
-<li>购买物品的时候电脑和手机增加10和100的选择，方式是电脑上：上下翻页行行首行尾；手机上，双指和三指左右滑动。</li>
-<li>优化部分会崩溃的bug。</li>
-</ol>
-<h3 id="v0-0-5"><a href="#v0-0-5" class="headerlink" title="v0.0.5"></a>v0.0.5</h3><ol>
-<li>将1号位子改成房主，从2号位变成现在的1号位</li>
-<li>电脑端，从之前的切换到后台停止播放，改成不限制。安卓任然是切换到后台停止播放。ps: 对语音不影响。</li>
-<li>新增个性化设置，进入房间坐下后，麦克风是否开启，默认是自动开启，可以在系统设置的个性化设置内关闭。</li>
-<li>安卓新增功能：双击返回键，直接强行退出游戏。</li>
-<li>安卓接入无障碍读平控制，目前将老超自由的读平控制移到这边，需要进行测试。</li>
-<li>修复部分bug。</li>
-</ol>
-<h3 id="v0-0-4"><a href="#v0-0-4" class="headerlink" title="v0.0.4"></a>v0.0.4</h3><ol>
-<li>完成主界面在线用户推荐，目前每次刷新推荐在线随机10人。</li>
-<li>完善社交刷新接口，将部分用户信息缓存到本地数据库，全平台接入sqlite3底层源码。</li>
-<li>完善黑名单功能。</li>
-<li>修复多人房间的退出后，在上线，座位编号不匹配的BUG。</li>
-<li>修复网络原因掉线或者被另一台设备挤下线，时时RTC没有断开的BUG。</li>
-<li>增加修改当前房间的类型的功能，方法是：点击房间菜单的第一条房间信息。</li>
-<li>增加NativeApi功能，新增控制麦克风静音接口，和判断麦克风是否静音。</li>
-<li>api新增修改触摸模式功能，可以上下半屏分开触摸，请注意响应时间方法里的多出的gid参数。</li>
-</ol>
-<h3 id="v0-0-3"><a href="#v0-0-3" class="headerlink" title="v0.0.3"></a>v0.0.3</h3><ol>
-<li>完善在线离线提示，在房间内直接下线，不管是桌面还是成员列表都有离线字样提示。</li>
-<li>开启社交好友功能，可以添加和删除好友，黑名单暂未开放，之后社交功能会逐步完善。社交功能请点击菜单的社交项，将邮件功能移到社交内。</li>
-<li>完善创建房间的分类排序功能，进行排序不会随机变动。</li>
-</ol>
-<h3 id="v0-0-2"><a href="#v0-0-2" class="headerlink" title="v0.0.2"></a>v0.0.2</h3><ol>
-<li>全平台接入时时语音功能。</li>
-<li>服务器api新增loadData 和 saveData 保存和读取数据功能。</li>
-</ol>
-<h3 id="v0-0-1"><a href="#v0-0-1" class="headerlink" title="v0.0.1"></a>v0.0.1</h3><ol>
-<li>正式开放。</li>
-</ol>
+        <h2 id="ServerMain-lua-详情查阅lua注释"><a href="#ServerMain-lua-详情查阅lua注释" class="headerlink" title="ServerMain.lua 详情查阅lua注释"></a>ServerMain.lua 详情查阅lua注释</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">local api -- 控制街口对象表,，通过sf_start事件回调获得,存放在模块局部变量中，详情请查阅（api接口.txt）</span><br><span class="line"></span><br><span class="line">-- player结构说明</span><br><span class="line">-- 每个用户对象表拥有 uid, name,  vip, gold, gender属性</span><br><span class="line">-- 每个用户上有一个data table,该表上存放了该用户的所有游戏数据，当用户断线后会自动保存，，当新用户进入，data为空，需要立刻初始化该数据。</span><br><span class="line"></span><br><span class="line">--- 开始初始化事件，每次启动服务器后直接会被调用</span><br><span class="line">-- @function sf_start</span><br><span class="line">-- @tab nativeapi，控制接口，详情查阅 gameApi</span><br><span class="line">local function sf_start( nativeapi)</span><br><span class="line">-- 将这些变量放在模块变量里，在别的事件回调中使用</span><br><span class="line">api = nativeapi</span><br><span class="line">api.log(&quot;game start&quot;)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">--- 收到客户端网络数据响应事件。</span><br><span class="line">-- @function sf_message</span><br><span class="line">-- @tab player 哪个用户发来的信息</span><br><span class="line">-- @tab data 数据表table</span><br><span class="line">local function sf_message( player,data)</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">--- 有用户进入</span><br><span class="line">-- @function join</span><br><span class="line">-- @int player 进来的新用户</span><br><span class="line">-- @boolean 是否是新用户登陆，第一次登陆为true，player.data为nil，需要初始化该data为table来保存该玩家的信息，为false则表明是老用户登录，data上保存了他的用户数据</span><br><span class="line">local function sf_join(player,isNewUser)</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">--- 有用户离开</span><br><span class="line">-- @function leave</span><br><span class="line">-- @int player 离开的用户</span><br><span class="line">local function sf_leave(player)</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">-- 输出接口callback</span><br><span class="line">return &#123;</span><br><span class="line">start=sf_start,</span><br><span class="line">message=sf_message,</span><br><span class="line">join=sf_join,</span><br><span class="line">leave=sf_leave,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -282,12 +240,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/01/06/vent/yang/" rel="prev" title="羊圈">
-      <i class="fa fa-chevron-left"></i> 羊圈
+    <a href="/2023/05/29/docker/handbook/" rel="prev" title="docker 笔记">
+      <i class="fa fa-chevron-left"></i> docker 笔记
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/05/01/sf/sf/" rel="next" title="超自由游戏开发平台">
-      超自由游戏开发平台 <i class="fa fa-chevron-right"></i>
+    <a href="/2023/09/25/sf/sf-game-server-api/" rel="next" title="全局类服务接口api对象">
+      全局类服务接口api对象 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -347,7 +305,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"><span class="nav-number">1.</span> <span class="nav-text">更新日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#v0-0-7"><span class="nav-number">1.1.</span> <span class="nav-text">v0.0.7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v0-0-6"><span class="nav-number">1.2.</span> <span class="nav-text">v0.0.6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v0-0-5"><span class="nav-number">1.3.</span> <span class="nav-text">v0.0.5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v0-0-4"><span class="nav-number">1.4.</span> <span class="nav-text">v0.0.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v0-0-3"><span class="nav-number">1.5.</span> <span class="nav-text">v0.0.3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v0-0-2"><span class="nav-number">1.6.</span> <span class="nav-text">v0.0.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v0-0-1"><span class="nav-number">1.7.</span> <span class="nav-text">v0.0.1</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ServerMain-lua-%E8%AF%A6%E6%83%85%E6%9F%A5%E9%98%85lua%E6%B3%A8%E9%87%8A"><span class="nav-number">1.</span> <span class="nav-text">ServerMain.lua 详情查阅lua注释</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
