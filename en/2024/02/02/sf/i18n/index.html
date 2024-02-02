@@ -28,7 +28,7 @@
 <meta property="og:description" content="Internationalization support is a technology that enables the software to display different texts around the world. Currently, it has built-in support for Chinese and English.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-02T06:47:00.000Z">
-<meta property="article:modified_time" content="2024-02-02T09:03:40.540Z">
+<meta property="article:modified_time" content="2024-02-02T09:37:46.268Z">
 <meta property="article:author" content="LiXiaoYao">
 <meta property="article:tag" content="Accessibility">
 <meta name="twitter:card" content="summary">
@@ -196,7 +196,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-02-02 14:47:00 / Modified: 17:03:40" itemprop="dateCreated datePublished" datetime="2024-02-02T14:47:00+08:00">2024-02-02</time>
+              <time title="Created: 2024-02-02 14:47:00 / Modified: 17:37:46" itemprop="dateCreated datePublished" datetime="2024-02-02T14:47:00+08:00">2024-02-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,7 +220,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="What-is-international-i18n"><a href="#What-is-international-i18n" class="headerlink" title="What is international i18n"></a>What is international i18n</h3><p>i18n, in short, is to release a software to the global market, open it in every place, and display the functions of different languages.<br>Currently, it can be judged according to your mobile phone system and loaded with different language files. Chinese and English are supported by default. We also hope that more people will join in the translation and submit it to the official.</p>
+        <h3 id="What-is-international-i18n"><a href="#What-is-international-i18n" class="headerlink" title="What is international i18n"></a>What is international i18n</h3><p>i18n, in short, is to release a software to the global market, open it in every place, and display the functions of different languages.<br>Currently, we can judge and load different language files based on your system. Chinese and English are supported by default. We also hope that more people will join in the translation and submit it to the official.</p>
 <h3 id="Function-usage"><a href="#Function-usage" class="headerlink" title="Function usage"></a>Function usage</h3><ol>
 <li><strong>(text,{…})<br>There is a function method named “</strong>“ globally. The first parameter is the key of the text to be displayed in json. The key is preferably a combination of English letters and numbers.<br>value is the text to be displayed. Variable placeholders can be used in the text. Each variable is widened with “${“ and “}”. For example: <code>hello $&#123;world&#125;</code><br>The second parameter is a hash table, which is used to map to the variable placeholder part of the first parameter. k is the variable name and v is the text to be displayed by the variable.<br>If the variable placeholder does not find a value in the second parameter hash table, the value of the same key will be found in the current language json environment for replacement.<br>Finally, according to the current locale, “__” will return the corresponding string result.<br>As for environment json, it is json text data with key&#x3D;value, located in the resources&#x2F;langs&#x2F; directory.<br>Generally, the language file of your module is in (resources&#x2F;langs&#x2F;module&#x2F;<your module name>&#x2F;<language Code>.json). For example: resources&#x2F;langs&#x2F;module&#x2F;card&#x2F;zh.json</li>
 </ol>
