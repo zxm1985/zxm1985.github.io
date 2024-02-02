@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/en/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/en/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/en/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/en/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/en/css/main.css">
+
+
+<link rel="stylesheet" href="/en/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.52czy.net","root":"/en/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Describe the global class client development entry module, objects in the module and event response methods.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Global class client entry module: ClientMain.lua">
+<meta property="og:url" content="https://blog.52czy.net/en/2023/09/25/sf/sf-game-client/index.html">
+<meta property="og:site_name" content="WanJianGuiXin">
+<meta property="og:description" content="Describe the global class client development entry module, objects in the module and event response methods.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-09-25T13:25:01.000Z">
+<meta property="article:modified_time" content="2024-02-02T09:05:22.788Z">
+<meta property="article:author" content="LiXiaoYao">
+<meta property="article:tag" content="Accessibility">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.52czy.net/en/2023/09/25/sf/sf-game-client/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Global class client entry module: ClientMain.lua | WanJianGuiXin</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/en/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">WanJianGuiXin</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">fairy island</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-switch-to-chinese">
+
+    <a href="/en/../" rel="section"><i class="fa fa-home fa-fw"></i>Switch to Chinese</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/en/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.52czy.net/en/2023/09/25/sf/sf-game-client/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/en/images/avatar.gif">
+      <meta itemprop="name" content="LiXiaoYao">
+      <meta itemprop="description" content="In the past, I was too busy to summarize. Now I am standing at a different height, leaving a memory of the Internet for my future self.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WanJianGuiXin">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Global class client entry module: ClientMain.lua
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-09-25 21:25:01" itemprop="dateCreated datePublished" datetime="2023-09-25T21:25:01+08:00">2023-09-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-02-02 17:05:22" itemprop="dateModified" datetime="2024-02-02T17:05:22+08:00">2024-02-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/en/categories/SF-Development/" itemprop="url" rel="index"><span itemprop="name">SF Development</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">Describe the global class client development entry module, objects in the module and event response methods. </div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">local api -- control the street object table, obtained through the sf_start event callback, and stored in module local variables. For details, please refer to (api interface.txt)</span><br><span class="line">-- Room and global games use the same client control API</span><br><span class="line">local quitFunc -- method used to save and exit the game</span><br><span class="line">local myselfUid -- used to save your own uid</span><br><span class="line"></span><br><span class="line">--- Start game event callback</span><br><span class="line">-- @function sf_start</span><br><span class="line">-- @tab nativeapi controls the street object table</span><br><span class="line">local function sf_start(uid,nativeapi,qf)</span><br><span class="line">    -- Usually save the required variables to the module</span><br><span class="line">    myselfUid = uid</span><br><span class="line">api = nativeapi -- save API object table</span><br><span class="line">quitFunc = qf</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">--- Network data response event callback</span><br><span class="line">-- @function sf_message</span><br><span class="line">-- @tab data Data table issued by the server</span><br><span class="line">local function sf_message(data)</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">--- Keyboard press event callback</span><br><span class="line">-- @function sf_keydown</span><br><span class="line">-- @int keycode keyboard response code, please refer to Constants.txt</span><br><span class="line">-- @boolean repeated Whether it is a repeated key. Generally, when the next key is pressed, it is a new key. If you don&#x27;t let go, it will always respond to keydown. At this time, repeated is true, indicating that it is a repeated key.</span><br><span class="line">local function sf_keydown(keycode,repeated)</span><br><span class="line">if keycode==api.Constants.K_F12 then</span><br><span class="line">quitFunc() -- Exit the game</span><br><span class="line">end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">--- Keyboard lift callback</span><br><span class="line">-- @function sf_keyup</span><br><span class="line">-- @int keycode keyboard response code, please refer to Constants.txt</span><br><span class="line">local sf_keyup = function(keycode)</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">--- Touch response event callback, can only be used on Android platform, ios platform and web platform</span><br><span class="line">-- @function sf_touch</span><br><span class="line">-- @int touchtype gesture type, please refer to Constants</span><br><span class="line">-- @int x x coordinate</span><br><span class="line">-- @int y y coordinate, the coordinate returns the design logical size, please refer to the logical coordinates dwidth and dheight in the drawing interface</span><br><span class="line">-- @int fingers The number of fingers for this gesture is usually 1 to 3 fingers. Hardware support is required for multiple fingers. Some mobile phone touch screens support 10 fingers, usually up to four fingers.</span><br><span class="line">-- @int gid The mode number of this touch, 100-digit full-screen touch number, 200-digit upper half screen number in split-screen touch, 300-digit lower half screen touch number in split-screen mode</span><br><span class="line">local function sf_touch(touchtype, x, y,fingers,gid)</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">--- Called every frame, used for constant game updates, 60 frames per second</span><br><span class="line">-- @function update</span><br><span class="line">-- @number ds The time difference between two update calls, in seconds, accurate to 3 decimal places</span><br><span class="line">local function sf_update(ds)</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">--- Game controller responsiveness, including gamepads</span><br><span class="line">-- @function sf_gamecontroller</span><br><span class="line">-- @tab msg Data response structure table</span><br><span class="line">-- @int msg.which indicates which controller or handle sent the message, which is equivalent to the handle ID, starting from 0. Generally, the computer supports 8 handles.</span><br><span class="line">-- @int msg.timestamp The timestamp when the message was sent</span><br><span class="line">-- @int msg.type Controller response code, for details, please refer to the always-on table on api.Constants. There are currently three messages, axis change messages, button press messages, and button lift messages.</span><br><span class="line">-- @int msg.button When msg.type is when the button is pressed or raised, it indicates the number of the button. For details, please refer to: The always-on table on api.Constants</span><br><span class="line">-- @int msg.axis When the current type is an axis message, it indicates which axis sends the change message. For example, if the left joystick x changes horizontally, the axis is 0, and if the right joystick changes up and down, the axis is 3.</span><br><span class="line">-- @int msg.value represents the current status of the axis change, ranging from -32768 to 32767. When the joystick is at the dot, it is 0. Otherwise, the symbol is the same as the axis direction where it is located.</span><br><span class="line">local function sf_gamecontroller(msg)</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">--- Mouse response event</span><br><span class="line">-- @function sf_mouse</span><br><span class="line">-- @tab msg Data response structure table</span><br><span class="line">-- @int msg.type Mouse event type, for details, refer to the always-on table client</span><br><span class="line">-- @int msg.button mouse case type, for details, please refer to the always-on table client</span><br><span class="line">-- @int msg.x msg.y mouse logical coordinates</span><br><span class="line">local function sf_mouse(msg)</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">--Export interface methods</span><br><span class="line">return &#123;</span><br><span class="line">start=sf_start,</span><br><span class="line">message=sf_message,</span><br><span class="line">keydown=sf_keydown,</span><br><span class="line">keyup=sf_keyup, -- optional</span><br><span class="line">touch=sf_touch,</span><br><span class="line">update=sf_update,</span><br><span class="line">gamecontroller=sf_gamecontroller,</span><br><span class="line">mouse=sf_mouse,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/en/tags/Accessibility/" rel="tag"># Accessibility</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/en/2023/09/25/sf/sf-game-server-api/" rel="prev" title="Global class service interface api object">
+      <i class="fa fa-chevron-left"></i> Global class service interface api object
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/en/2024/02/02/sf/i18n/" rel="next" title="International i18n support">
+      International i18n support <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">LiXiaoYao</p>
+  <div class="site-description" itemprop="description">In the past, I was too busy to summarize. Now I am standing at a different height, leaving a memory of the Internet for my future self.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/en/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/en/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/en/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiXiaoYao</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/en/lib/anime.min.js"></script>
+  <script src="/en/lib/velocity/velocity.min.js"></script>
+  <script src="/en/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/en/js/utils.js"></script>
+
+<script src="/en/js/motion.js"></script>
+
+
+<script src="/en/js/schemes/muse.js"></script>
+
+
+<script src="/en/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

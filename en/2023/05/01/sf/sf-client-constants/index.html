@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/en/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/en/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/en/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/en/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/en/css/main.css">
+
+
+<link rel="stylesheet" href="/en/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.52czy.net","root":"/en/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Describes the always-on table in the client, which defines the required constant lights for keyboard and touch.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Client Constants constant light table">
+<meta property="og:url" content="https://blog.52czy.net/en/2023/05/01/sf/sf-client-constants/index.html">
+<meta property="og:site_name" content="WanJianGuiXin">
+<meta property="og:description" content="Describes the always-on table in the client, which defines the required constant lights for keyboard and touch.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-05-01T08:53:14.000Z">
+<meta property="article:modified_time" content="2024-02-02T09:05:09.092Z">
+<meta property="article:author" content="LiXiaoYao">
+<meta property="article:tag" content="Accessibility">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.52czy.net/en/2023/05/01/sf/sf-client-constants/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Client Constants constant light table | WanJianGuiXin</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/en/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">WanJianGuiXin</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">fairy island</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-switch-to-chinese">
+
+    <a href="/en/../" rel="section"><i class="fa fa-home fa-fw"></i>Switch to Chinese</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/en/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.52czy.net/en/2023/05/01/sf/sf-client-constants/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/en/images/avatar.gif">
+      <meta itemprop="name" content="LiXiaoYao">
+      <meta itemprop="description" content="In the past, I was too busy to summarize. Now I am standing at a different height, leaving a memory of the Internet for my future self.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WanJianGuiXin">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Client Constants constant light table
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-05-01 16:53:14" itemprop="dateCreated datePublished" datetime="2023-05-01T16:53:14+08:00">2023-05-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-02-02 17:05:09" itemprop="dateModified" datetime="2024-02-02T17:05:09+08:00">2024-02-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/en/categories/SF-Development/" itemprop="url" rel="index"><span itemprop="name">SF Development</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">Describes the always-on table in the client, which defines the required constant lights for keyboard and touch. </div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Constant-table-on-api-Constants"><a href="#Constant-table-on-api-Constants" class="headerlink" title="Constant table on api.Constants"></a>Constant table on api.Constants</h2><h3 id="Keyboard-scan-code"><a href="#Keyboard-scan-code" class="headerlink" title="Keyboard scan code"></a>Keyboard scan code</h3><ul>
+<li>K_ENTER&#x3D;40, – Enter</li>
+<li>K_LCTRL&#x3D;224, – left ctrl</li>
+<li>K_LSHIFT&#x3D;225, – left shift</li>
+<li>K_LALT&#x3D;226, – left alt</li>
+<li>K_RCTRL&#x3D;228,</li>
+<li>K_RSHIFT&#x3D;229,</li>
+<li>K_RALT&#x3D;230,</li>
+<li>K_APPS&#x3D;101,</li>
+<li>K_F1&#x3D;58,</li>
+<li>K_F2&#x3D;59,</li>
+<li>K_F3&#x3D;60,</li>
+<li>K_F4&#x3D;61,</li>
+<li>K_F5&#x3D;62,</li>
+<li>K_F6&#x3D;63,</li>
+<li>K_F7&#x3D;64,</li>
+<li>K_F8&#x3D;65,</li>
+<li>K_F9&#x3D;66,</li>
+<li>K_F10&#x3D;67,</li>
+<li>K_F11&#x3D;68,</li>
+<li>K_F12&#x3D;69,</li>
+<li>K_UP&#x3D;82,</li>
+<li>K_DOWN&#x3D;81,</li>
+<li>K_LEFT&#x3D;80,</li>
+<li>K_RIGHT&#x3D;79,</li>
+<li>K_HOME&#x3D;74,</li>
+<li>K_END&#x3D;77,</li>
+<li>K_PAGEUP&#x3D;75,</li>
+<li>K_PAGEDOWN&#x3D;78,</li>
+<li>K_DEL&#x3D;76,</li>
+<li>K_INSERT&#x3D;73,</li>
+<li>K_NUMLOCK&#x3D;83,</li>
+<li>K_N1&#x3D;89,</li>
+<li>K_N2&#x3D;90,</li>
+<li>K_N3&#x3D;91,</li>
+<li>K_N4&#x3D;92,</li>
+<li>K_N5&#x3D;93,</li>
+<li>K_N6&#x3D;94,</li>
+<li>K_N7&#x3D;95,</li>
+<li>K_N8&#x3D;96,</li>
+<li>K_N9&#x3D;97,</li>
+<li>K_N0&#x3D;98, – 1~0</li>
+<li>K_NPOINT&#x3D;99, – points</li>
+<li>K_NEQUAL&#x3D;88, – small carriage return</li>
+<li>K_NPLUS&#x3D;87, – Add</li>
+<li>K_NDECREASE&#x3D;86, – subtract</li>
+<li>K_NMULTIPLY&#x3D;85, – multiply</li>
+<li>K_NDIVIDE&#x3D;84, – divide</li>
+<li>K_TAB&#x3D;43, – TAB</li>
+<li>K_SPACE&#x3D;44, – space</li>
+<li>K_BACKSPACE&#x3D;42, – backspace</li>
+<li>K_ESC&#x3D;41, – ESC</li>
+<li>K_1&#x3D;30,</li>
+<li>K_2&#x3D;31,</li>
+<li>K_3&#x3D;32,</li>
+<li>K_4&#x3D;33,</li>
+<li>K_5&#x3D;34,</li>
+<li>K_6&#x3D;35,</li>
+<li>K_7&#x3D;36,</li>
+<li>K_8&#x3D;37,</li>
+<li>K_9&#x3D;38,</li>
+<li>K_0&#x3D;39,</li>
+<li>K_DECREASE&#x3D;45, – minus sign</li>
+<li>K_EQUAL&#x3D;46, – equal to</li>
+<li>K_PE&#x3D;53, – backtick</li>
+<li>K_FXG&#x3D;49, – backslash</li>
+<li>K_ZFK&#x3D;47, – left square bracket</li>
+<li>K_YFK&#x3D;48, – right square bracket</li>
+<li>K_FH&#x3D;51, – semicolon</li>
+<li>K_DYH&#x3D;52, – single quote</li>
+<li>K_DH&#x3D;54, – comma</li>
+<li>K_JH&#x3D;55, – period</li>
+<li>K_XG&#x3D;56, – slash</li>
+<li>K_A&#x3D;4,</li>
+<li>K_B&#x3D;5,</li>
+<li>K_C&#x3D;6,</li>
+<li>K_D&#x3D;7,</li>
+<li>K_E&#x3D;8,</li>
+<li>K_F&#x3D;9,</li>
+<li>K_G&#x3D;10,</li>
+<li>K_H&#x3D;11,</li>
+<li>K_I&#x3D;12,</li>
+<li>K_J&#x3D;13,</li>
+<li>K_K&#x3D;14,</li>
+<li>K_L&#x3D;15,</li>
+<li>K_M&#x3D;16,</li>
+<li>K_N&#x3D;17,</li>
+<li>K_O&#x3D;18,</li>
+<li>K_P&#x3D;19,</li>
+<li>K_Q&#x3D;20,</li>
+<li>K_R&#x3D;21,</li>
+<li>K_S&#x3D;22,</li>
+<li>K_T&#x3D;23,</li>
+<li>K_U&#x3D;24,</li>
+<li>K_V&#x3D;25,</li>
+<li>K_W&#x3D;26,</li>
+<li>K_X&#x3D;27,</li>
+<li>K_Y&#x3D;28,</li>
+<li>K_Z&#x3D;29,</li>
+</ul>
+<h3 id="Touch-to-stay-on"><a href="#Touch-to-stay-on" class="headerlink" title="Touch to stay on"></a>Touch to stay on</h3><ul>
+<li>TOUCH_CLICKED&#x3D;1, – standalone</li>
+<li>TOUCH_DOUBLECLICKED&#x3D;2, – double click</li>
+<li>TOUCH_LEFTSLID&#x3D;3, – slide left</li>
+<li>TOUCH_SLIDRIGHT&#x3D;4, – slide right</li>
+<li>TOUCH_SLIDUP&#x3D;5, – slide up</li>
+<li>TOUCH_SLIDDOWN&#x3D;6, – slide</li>
+<li>TOUCH_SCROLLLEFT&#x3D;7, – push left</li>
+<li>TOUCH_SCROLLRIGHT&#x3D;8, – push right</li>
+<li>TOUCH_SCROLLUP&#x3D;9, – push up</li>
+<li>TOUCH_SCROLLDOWN&#x3D;10, – push down</li>
+<li>TOUCH_SCROLLEND&#x3D;11, – Stop pushing</li>
+<li>TOUCH_LONGPRESSED&#x3D;12, – long press</li>
+<li>TOUCH_DOWN&#x3D;13, – The finger touches the screen</li>
+<li>TOUCH_MOVE&#x3D;14, – Move your finger on the screen</li>
+<li>TOUCH_UP&#x3D;15, – Take your finger off the screen</li>
+</ul>
+<h3 id="Handle-response-code-msg-type"><a href="#Handle-response-code-msg-type" class="headerlink" title="Handle response code, msg.type"></a>Handle response code, msg.type</h3><ul>
+<li>CONTROLLERAXISMOTION &#x3D;0x650, – Controller axis changes, xbox controllers generally have 6 axes, the x and y movement axes of the left rocker of 0|1, the x|y direction axis of the right rocker of 2|3, and The two pressure rods 4|5 axes on the left and right sides of the front end<br>  CONTROLLERBUTTONDOWN&#x3D;0x651, – The button on the controller is pressed, excluding the joystick movement, but including the two joystick buttons of the joystick being pressed. There is no repeated response after long pressing, and it will only be called once, which is different from the computer keyboard and Bluetooth keyboard.<br>  CONTROLLERBUTTONUP&#x3D;0x652, – button lift message on the handle</li>
+</ul>
+<h3 id="Controller-button-code-different-controllers-have-different-numbers-of-buttons-msg-button"><a href="#Controller-button-code-different-controllers-have-different-numbers-of-buttons-msg-button" class="headerlink" title="Controller button code, different controllers have different numbers of buttons, msg.button"></a>Controller button code, different controllers have different numbers of buttons, msg.button</h3><p>CB_INVALID&#x3D;-1, – The system cannot recognize the hardware button<br>CB_A&#x3D;0, – Controller A button<br>CB_B&#x3D;1, – controller B button<br>CB_X&#x3D;2, – Controller X key<br>CB_Y&#x3D;3, – controller Y key<br>CB_BACK&#x3D;4, – Controller return key<br>CB_GUIDE&#x3D;5, – Controller guidance keys<br>CB_START&#x3D;6, – Controller start button<br>CB_LEFTSTICK&#x3D;7, – The left joystick of the controller is pressed<br>CB_RIGHTSTICK&#x3D;8, – The right joystick of the controller is pressed<br>CB_LEFTSHOULDER&#x3D;9, – the left button on the front of the controller<br>CB_RIGHTSHOULDER&#x3D;10, – right button on the front of the handle<br>CB_DPAD_UP&#x3D;11, – controller direction keyboard<br>CB_DPAD_DOWN&#x3D;12, – controller direction keyboard down<br>CB_DPAD_LEFT&#x3D;13, – controller direction keyboard left<br>CB_DPAD_RIGHT&#x3D;14, – controller direction keyboard right<br>CB_MISC1&#x3D;15, – controller miscellaneous keys<br>CB_PADDLE1&#x3D;16,<br>CB_PADDLE2&#x3D;17,<br>CB_PADDLE3&#x3D;18,<br>CB_PADDLE4&#x3D;19,<br>CB_TOUCHPAD&#x3D;20, – The handle touchpad was touched, and the detailed touch function game controller interface is not yet available.<br>CB_MAX&#x3D;21,</p>
+<h3 id="Mouse-response-code-type"><a href="#Mouse-response-code-type" class="headerlink" title="Mouse response code (type)"></a>Mouse response code (type)</h3><p>MOUSEMOTION&#x3D;0x400, – mouse movement<br>MOUSEBUTTONDOWN&#x3D;0x401,–Mouse case pressed<br>MOUSEBUTTONUP&#x3D;0x402, – Mouse case raised<br>MOUSEWHEEL&#x3D;0x403, – mouse wheel</p>
+<h3 id="Mouse-case-button"><a href="#Mouse-case-button" class="headerlink" title="Mouse case(button)"></a>Mouse case(button)</h3><p>BUTTON_LEFT&#x3D;1,<br>BUTTON_MIDDLE&#x3D;2,<br>BUTTON_RIGHT&#x3D;3,<br>BUTTON_X1&#x3D;4,<br>BUTTON_X2&#x3D;5,</p>
+<h3 id="Keyboard-mouse-handle-case-etc-status-state"><a href="#Keyboard-mouse-handle-case-etc-status-state" class="headerlink" title="Keyboard, mouse, handle case, etc. status (state)"></a>Keyboard, mouse, handle case, etc. status (state)</h3><p>RELEASED&#x3D;0,<br>PRESSED&#x3D;1,</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/en/tags/Accessibility/" rel="tag"># Accessibility</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/en/2023/05/01/sf/sf-client-api/" rel="prev" title="Client interface api object">
+      <i class="fa fa-chevron-left"></i> Client interface api object
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/en/2023/05/01/sf/draw/" rel="next" title="Drawing interface">
+      Drawing interface <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Constant-table-on-api-Constants"><span class="nav-number">1.</span> <span class="nav-text">Constant table on api.Constants</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Keyboard-scan-code"><span class="nav-number">1.1.</span> <span class="nav-text">Keyboard scan code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Touch-to-stay-on"><span class="nav-number">1.2.</span> <span class="nav-text">Touch to stay on</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Handle-response-code-msg-type"><span class="nav-number">1.3.</span> <span class="nav-text">Handle response code, msg.type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller-button-code-different-controllers-have-different-numbers-of-buttons-msg-button"><span class="nav-number">1.4.</span> <span class="nav-text">Controller button code, different controllers have different numbers of buttons, msg.button</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mouse-response-code-type"><span class="nav-number">1.5.</span> <span class="nav-text">Mouse response code (type)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mouse-case-button"><span class="nav-number">1.6.</span> <span class="nav-text">Mouse case(button)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Keyboard-mouse-handle-case-etc-status-state"><span class="nav-number">1.7.</span> <span class="nav-text">Keyboard, mouse, handle case, etc. status (state)</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">LiXiaoYao</p>
+  <div class="site-description" itemprop="description">In the past, I was too busy to summarize. Now I am standing at a different height, leaving a memory of the Internet for my future self.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/en/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/en/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/en/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiXiaoYao</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/en/lib/anime.min.js"></script>
+  <script src="/en/lib/velocity/velocity.min.js"></script>
+  <script src="/en/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/en/js/utils.js"></script>
+
+<script src="/en/js/motion.js"></script>
+
+
+<script src="/en/js/schemes/muse.js"></script>
+
+
+<script src="/en/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
