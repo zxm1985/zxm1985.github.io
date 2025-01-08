@@ -28,7 +28,7 @@
 <meta property="og:description" content="描述客户端内的api对象，暴露给客户端开发使用的功能function。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-05-01T08:53:14.000Z">
-<meta property="article:modified_time" content="2024-01-18T03:14:13.975Z">
+<meta property="article:modified_time" content="2024-02-16T06:50:58.000Z">
 <meta property="article:author" content="李逍遥">
 <meta property="article:tag" content="无障碍">
 <meta name="twitter:card" content="summary">
@@ -202,7 +202,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-18 11:14:13" itemprop="dateModified" datetime="2024-01-18T11:14:13+08:00">2024-01-18</time>
+                <time title="修改时间：2024-02-16 14:50:58" itemprop="dateModified" datetime="2024-02-16T14:50:58+08:00">2024-02-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -227,11 +227,13 @@
 
       
         <h2 id="api控制接口，从客户端入口模块ClientMain-lua的sf-start参数中获得"><a href="#api控制接口，从客户端入口模块ClientMain-lua的sf-start参数中获得" class="headerlink" title="api控制接口，从客户端入口模块ClientMain.lua的sf_start参数中获得"></a>api控制接口，从客户端入口模块ClientMain.lua的sf_start参数中获得</h2><ol>
-<li>api.Constants.*** 所需常亮表，如键盘code和触摸种类TOUCH_*，详情请查看常亮说明文件[Constants]</li>
-<li>音频引擎，可提出需求增加更多功能<ol>
+<li><p>api.Constants.*** 所需常亮表，如键盘code和触摸种类TOUCH_*，详情请查看常亮说明文件[Constants]</p>
+</li>
+<li><p>音频引擎，可提出需求增加更多功能</p>
+<ol>
 <li>api.playOnce(path,cb) -&gt; 播放一次音效，path: 音频事件相对路径，不需要扩展名，最后音频目录需要通过工程打包成dat格式。 cb -&gt; 回调方法，每次播放完毕后，会回调该方法</li>
 <li>api.playOnce(path,pan) -&gt; 播放一次音效，path: 音频事件相对路径，不需要扩展名，最后音频目录需要通过工程打包成dat格式。 pan -&gt; 2d平移位置，从 -1.0 到 1.0, 从左声道到右声道。</li>
-<li>api.playOwn(name,path) -&gt; 播放音频，并且给音频取名，之后可以通过名字控制音频，同名的音频互斥，例如播放会打断之前的声音。</li>
+<li>api.playOwn(name,path,cb) -&gt; 播放音频，并且给音频取名，之后可以通过名字控制音频，同名的音频互斥，例如播放会打断之前的声音。 cb -&gt; 回调方法，每次播放完毕后，会回调该方法</li>
 <li>api.playWithPosition(path,x,y,z) -&gt; 播放一次音效，根据位置，path: 音频事件相对路径，不需要扩展名，最后音频目录需要通过工程打包成dat格式。 x,y,z 音频声源在3D环境内的坐标，精确到小数点。x左右，y上下，z前后。</li>
 <li>api.stopAudio(name) -&gt; 停止音频，但在内存中不释放。</li>
 <li>api.releaseAudio(name) -&gt; 停止并释放音频</li>
@@ -260,31 +262,39 @@
 <li>api.setParameterLabel(name,key,label) -&gt; 设置音效引擎中的和音效师定义好的枚举参数变量，name 音效实力名称; key 参数名; label 字符串枚举名，类型string</li>
 </ol>
 </li>
-<li>语音库引擎<ol>
+<li><p>api.playProgram(path,dialogString,cb) -&gt; 可以用来播放国际化多语言对话音频，或者是程序员控制对话，path事件路径，dialogString，音频表中的key,详情参考fmod中的对话和本地化文档,cb 播放完回调，可省略。</p>
+</li>
+<li><p>语音库引擎</p>
+<ol>
 <li>api.speak(text,appended) -&gt; 离线TTS朗读，text朗读文本UTF8，appended是否需要排队朗读,默认省略参数打断朗读</li>
 <li>api.speakOnline(text,appended) -&gt; 在线TTS朗读，text朗读文本UTF8，appended是否需要排队朗读,默认省略参数打断朗读，该朗读不会打断本地离线tts，一般用于通知类朗读。</li>
 </ol>
 </li>
-<li>传输引擎<ol>
+<li><p>传输引擎</p>
+<ol>
 <li>api.send(t) -&gt; 发送数据到服务器 t 为lua table</li>
 </ol>
 </li>
-<li>计时器<ol>
+<li><p>计时器</p>
+<ol>
 <li>api.addTimer(ms,cb) -&gt; 添加计时器，参数ms毫秒，cb回调函数，回调方法返回true计时器继续，返回false计时器结束，return 返回取消当前计时器的方法</li>
 <li>api.time() -&gt; 获得返回值已秒为单位的小数，精确到毫秒</li>
 </ol>
 </li>
-<li>控制麦克风,在全局类游戏中无法使用<ol>
+<li><p>控制麦克风,在全局类游戏中无法使用</p>
+<ol>
 <li>api.muteMic(b) -&gt; b为true则麦克风静音， false麦克风取消静音。</li>
 <li>api.isMuteMic() -&gt; return返回麦克风是否静音，true为静音。</li>
 </ol>
 </li>
-<li>修改触摸模式<ol>
+<li><p>修改触摸模式</p>
+<ol>
 <li>api.selectGestureMode(mode) -&gt; 参数mode，1 正常模式，全屏触摸，2 上下分屏模式，此时两边的触摸不会互相干扰同时能响应。</li>
 <li>事件响应，选择分屏模式后，所有触摸事件响应方法中都多出一个参数，在fingers后，为gid,gid为200，表示在上半屏，gid为300，表示在下半屏。当全屏触摸模式下gid为100。</li>
 </ol>
 </li>
-<li>其他功能<ol>
+<li><p>其他功能</p>
+<ol>
 <li>api.copy(appended) -&gt; 拷贝刚用tts朗读的内容，appended为true表示追加拷贝</li>
 <li>api.vibrate(index,low,high,ms) -&gt; 震动游戏控制器，index: 控制器手柄的索引ID;low: 滴瓶震动的平率，high: 高平震动的平率，平率从0开始到0xFFFF为最大;ms: 震动持续的时间，单位毫秒。</li>
 <li>api.moveMouse(x,y)  -&gt; 将鼠标指针移动到心的位置。</li>
@@ -388,20 +398,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -428,7 +438,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
